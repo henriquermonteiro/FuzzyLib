@@ -5,6 +5,8 @@
  */
 package fuzzy.operation;
 
+import fuzzy.variable.LinguisticVariable;
+
 /**
  *
  * @author henrique
@@ -12,5 +14,6 @@ package fuzzy.operation;
 public interface BinaryOperation extends Operation{
 
     public Double operateOverValue(Double evaluateForInput, Double evaluateForInput0);
+    public LinguisticVariable operateOverVarible(LinguisticVariable varA, LinguisticVariable varB);
     
 }

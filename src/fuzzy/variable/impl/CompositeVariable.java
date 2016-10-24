@@ -20,15 +20,15 @@ public class CompositeVariable extends LinguisticVariable{
     private Operation operation;
 
     
-    public CompositeVariable(LinguisticVariable var1, Operation operation, String variableName) {
-        super(variableName);
+    public CompositeVariable(LinguisticVariable var1, Operation operation, String variableName, String domainName) {
+        super(variableName, domainName);
         this.var1 = var1;
         this.var2 = null;
         this.operation = operation;
     }
     
-    public CompositeVariable(LinguisticVariable var1, LinguisticVariable var2, Operation operation, String variableName) {
-        super(variableName);
+    public CompositeVariable(LinguisticVariable var1, LinguisticVariable var2, Operation operation, String variableName, String domainName) {
+        super(variableName, domainName);
         this.var1 = var1;
         this.var2 = var2;
         this.operation = operation;

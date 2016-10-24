@@ -11,13 +11,19 @@ package fuzzy.variable;
  */
 public abstract class LinguisticVariable {
     protected String variableName;
+    protected String domainName;
 
-    public LinguisticVariable(String variableName) {
+    public LinguisticVariable(String variableName, String domainName) {
         this.variableName = variableName;
+        this.domainName = domainName;
     }
 
     public String getVariableName() {
         return variableName;
+    }
+
+    public String getDomainName() {
+        return domainName;
     }
     
     public abstract Double evaluateForInput(Double input);

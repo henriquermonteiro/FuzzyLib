@@ -56,4 +56,14 @@ public class FuzzyVariable {
         this.upperBound = upperBound;
         return this;
     }
+
+    public LinguisticVariable getLinguisticVariable(String name) {
+        for(LinguisticVariable v : fuzzySet){
+            if(v.getVariableName().equals(name)){
+                return v;
+            }
+        }
+        
+        return null;
+    }
 }
