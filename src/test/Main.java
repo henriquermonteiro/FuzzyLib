@@ -11,6 +11,10 @@ import fuzzy.system.FuzzySystem;
 import fuzzy.variable.FuzzyVariable;
 import fuzzy.variable.impl.LineFunctionVariable;
 
+/**
+ * Classe com o método principal.
+ * @author henrique
+ */
 public class Main {
 
     public static void main(String... args) {
@@ -108,9 +112,6 @@ public class Main {
         );
         
         FuzzySystem sys = new FuzzySystem(rules, new FuzzyVariable[]{sujeira, mancha, tempo}, new Sum(), new CentroidDefuzzification(), new MandaniImplication());
-        
-//        System.out.println(Geometry.computePolygonCentroid(new double[]{0.0, 10.0, 22.0, 28.0, 37.0, 56.0, 60.0}, new double[]{0.0, 0.0, 0.8, 0.8, 0.2, 0.2, 0.0})[0]);
-//        sys.evaluateInputs(new Double[]{0.0, 100.0});
         
         for(int k = 0; k <= 100; k += 10){
             for(int t = 0; t <= 100; t += 10){

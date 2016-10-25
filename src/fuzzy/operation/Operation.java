@@ -6,7 +6,8 @@
 package fuzzy.operation;
 
 /**
- *
+ * Define uma interseção entre as definições de operadores.
+ * Para permitir definições de maneira mais flexível.
  * @author henrique
  */
 public interface Operation {

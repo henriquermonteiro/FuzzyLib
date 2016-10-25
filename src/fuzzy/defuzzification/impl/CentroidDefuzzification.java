@@ -12,26 +12,19 @@ import java.awt.geom.Point2D;
 import java.util.ArrayList;
 
 /**
- *
+ * Classe que implementa o método da defuzzificação por centróide.
  * @author henrique
  */
 public class CentroidDefuzzification implements DefuzzificationOperation {
 
+    /**
+     * Realiza a defuzzificação por centróide.
+     * @param var Variável a ser defuzzificada.
+     * @return O valor de X do ponto de centróide.
+     */
     @Override
     public Double defuzzify(LinguisticVariable var) {
         if (var instanceof LineFunctionVariable) {
-//            double[] xs = new double[((LineFunctionVariable) var).getPoints().size()];
-//            double[] ys = new double[xs.length];
-//            
-//            int k = 0;
-//            for(Point2D p : ((LineFunctionVariable) var).getPoints()){
-//                xs[k] = p.getX();
-//                ys[k] = p.getY();
-//                
-//                k++;
-//            }
-//            
-//            return Geometry.computePolygonCentroid(xs, ys)[0];
             ArrayList<Double> x_ = new ArrayList<>();
             ArrayList<Double> y_ = new ArrayList<>();
             ArrayList<Double> area = new ArrayList<>();
@@ -70,6 +63,10 @@ public class CentroidDefuzzification implements DefuzzificationOperation {
         return null;
     }
 
+    /**
+     * Teste do valor de centróide.
+     * @param args NÃO USADO.
+     */
     public static void main(String... args) {
         CentroidDefuzzification def = new CentroidDefuzzification();
 

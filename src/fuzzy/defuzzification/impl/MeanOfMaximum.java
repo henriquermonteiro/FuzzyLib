@@ -12,11 +12,16 @@ import java.awt.geom.Point2D;
 import java.util.ArrayList;
 
 /**
- *
+ * Classe que implementa a média dos máximos como método de defuzzificação.
  * @author henrique
  */
 public class MeanOfMaximum implements DefuzzificationOperation{
 
+    /**
+     * Defuzzifica uma variável fuzzy pelo método da média dos máximos.
+     * @param var
+     * @return 
+     */
     @Override
     public Double defuzzify(LinguisticVariable var) {
         if(var instanceof LineFunctionVariable){
@@ -49,6 +54,10 @@ public class MeanOfMaximum implements DefuzzificationOperation{
         return null;
     }
     
+    /**
+     * Teste de defuzzificação.
+     * @param args NÃO USADO.
+     */
     public static void main(String ... args){
         MeanOfMaximum mom = new MeanOfMaximum();
         

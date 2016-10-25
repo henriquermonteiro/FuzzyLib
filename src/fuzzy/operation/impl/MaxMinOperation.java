@@ -11,17 +11,30 @@ import fuzzy.variable.LinguisticVariable;
 import fuzzy.variable.impl.LineFunctionVariable;
 
 /**
- *
+ * Classe abstrata que cria implementa um método que opera por segmentos de retas.
+ * Unifica a definição do método para compor uma variável linguística resultante.
  * @author henrique
  */
 public abstract class MaxMinOperation implements BinaryOperation{
+    
+    /**
+     * Retorna o nome da operação, que vai ficar gravado no nome da variável linguística final.
+     * @return Nome da operação.
+     */
     protected abstract String operationName();
 
+    /**
+     * Método que varre duas variáveis linguísticas do tipo LineFunctionVariable e 
+     * realiza uma operação binária sobre estas.
+     * @param varA Variável 1.
+     * @param varB Variável 2.
+     * @return variável fuzzy resultante. Nulo se uma das entradas não for do tipo LineFunctionVariable.
+     */
     @Override
     public LinguisticVariable operateOverVarible(LinguisticVariable varA, LinguisticVariable varB) {
         if (varA.getDomainName().equals(varB.getDomainName())) {
             if (varA instanceof LineFunctionVariable) {
-                LineFunctionVariable lineF = new LineFunctionVariable("Max", varA.getDomainName());
+                LineFunctionVariable lineF = new LineFunctionVariable(operationName(), varA.getDomainName());
 
                 int iA = 1, iB = 1;
 
