@@ -2,7 +2,6 @@ package fuzzy.agregation.impl;
 
 import fuzzy.agregation.RuleAgregation;
 import fuzzy.operation.impl.Maximum;
-import fuzzy.operation.impl.Maximum;
 import fuzzy.rule.Rule;
 import fuzzy.variable.LinguisticVariable;
 

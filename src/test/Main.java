@@ -10,7 +10,6 @@ import fuzzy.rule.Rule;
 import fuzzy.system.FuzzySystem;
 import fuzzy.variable.FuzzyVariable;
 import fuzzy.variable.impl.LineFunctionVariable;
-import no.geosoft.cc.geometry.Geometry;
 
 public class Main {
 
