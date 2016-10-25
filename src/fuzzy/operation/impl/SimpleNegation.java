@@ -7,15 +7,19 @@ package fuzzy.operation.impl;
 
 import fuzzy.operation.UnaryOperation;
 import fuzzy.variable.LinguisticVariable;
+import fuzzy.variable.impl.LineFunctionVariable;
+import java.awt.geom.Point2D;
 
 /**
  * Classe que implementa a operação de negação/complemento simples.
+ *
  * @author henrique
  */
-public class SimpleNegation implements UnaryOperation{
+public class SimpleNegation implements UnaryOperation {
 
     /**
      * Faz o complemento 1 de um valor crisp.
+     *
      * @param evaluateForInput Valor de entrada.
      * @return Complemento 1.
      */
@@ -25,13 +29,26 @@ public class SimpleNegation implements UnaryOperation{
     }
 
     /**
-     * nÂO IMPLEMENTADO.
-     * @param var
-     * @return 
+     * Faz o complemento 1 de uma variável fuzzy.
+     *
+     * @param var Variável.
+     * @return Complemento 1 da variável.
      */
     @Override
     public LinguisticVariable operateOverVarible(LinguisticVariable var) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (var instanceof LineFunctionVariable) {
+            LineFunctionVariable lineF = new LineFunctionVariable("Not", var.getDomainName());
+
+            LineFunctionVariable a = (LineFunctionVariable) var;
+
+            for (Point2D p : a.getPoints()) {
+                lineF.addPoint(p.getX(), 1 - p.getY());
+            }
+
+            return lineF;
+        }
+
+        return null;
     }
-    
+
 }
