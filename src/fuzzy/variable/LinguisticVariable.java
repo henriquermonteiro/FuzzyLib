@@ -47,6 +47,8 @@ public abstract class LinguisticVariable {
         return domainName;
     }
     
+    public abstract Double getHeight();
+    
     /**
      * Avalia o grau de pertinência para um dado valor crisp.
      * @param input Valor crisp de entrada.

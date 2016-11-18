@@ -29,10 +29,14 @@ public class MandaniImplication extends RuleImplication {
         if (rule.getResult() instanceof LineFunctionVariable) {
             LineFunctionVariable l = (LineFunctionVariable) rule.getResult();
 
-            LineFunctionVariable res = new LineFunctionVariable("Implication", l.getDomainName());
+            LineFunctionVariable res = new LineFunctionVariable(((LineFunctionVariable)rule.getResult()).getVariableName(), l.getDomainName());
 
             Double v = rule.getInput().evaluateExpression(inputNames, inputValues);
 
+            if(v > 0){
+                System.out.print("");
+            }
+            
             res.addPoint(l.getPoint(0).getX(), Math.min(l.getPoint(0).getY(), v));
 
             Point2D p = null, auxP = l.getPoint(0);

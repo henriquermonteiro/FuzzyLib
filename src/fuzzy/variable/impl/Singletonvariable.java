@@ -68,4 +68,9 @@ public class Singletonvariable extends LinguisticVariable {
         return new double[0];
     }
 
+    @Override
+    public Double getHeight() {
+        return pertinence;
+    }
+
 }

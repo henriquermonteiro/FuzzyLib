@@ -190,4 +190,16 @@ public class LineFunctionVariable extends LinguisticVariable {
 
         System.out.println("");
     }
+
+    @Override
+    public Double getHeight() {
+        Double max = Double.NEGATIVE_INFINITY;
+        for(Point2D p : points){
+            if(p.getY() > max){
+                max = p.getY();
+            }
+        }
+        
+        return max;
+    }
 }
