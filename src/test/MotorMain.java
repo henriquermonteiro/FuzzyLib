@@ -112,19 +112,29 @@ public class MotorMain {
 
         double r = evaluateMotor(valuesMap, rules, velocidade, tensao, new Double[]{105.53, 55.2});
         
-        System.out.println(r);
+//        System.out.println(r);
         
         Double[] tensoes = new Double[12];
         
         for(int e = 0; e < 12; e++){
             tensoes[e] = 42 + (e*4.4);
+            tensoes[e] *= 10;
+            tensoes[e] = Math.round(tensoes[e])/10.0;
         }
         
         Double[] rdns = new Double[]{40.7401, 51.0532, 60.7126, 69.5656, 77.5537, 84.6781, 90.9763, 96.5058, 101.3350, 105.5330, 109.1710, 112.3150};
         
         for(int q = 0; q < tensoes.length; q++){
             for(int o = 0; o < rdns.length; o++){
-                System.out.println("Tensao: " + tensoes[q] + "  - Rotacao: " + rdns[o] + "  - Resultado: " + evaluateMotor(valuesMap, rules, velocidade, tensao, new Double[]{tensoes[q], rdns[o]}));
+                Double res = evaluateMotor(valuesMap, rules, velocidade, tensao, new Double[]{rdns[o], tensoes[q]});
+                Double erro = (tensoes[q] + res) - tensoes[o], erro2 = (tensoes[q] - res) - tensoes[o];
+                
+                if(Math.abs(erro2) < Math.abs(erro)){
+                    erro = erro2;
+                    res *= -1;
+                }
+                
+                System.out.println("Tensao: " + tensoes[q] + "  - Rotacao: " + rdns[o] + "  - Resultado: " + res + "  - Erro: " + erro + " ("+tensoes[q]+" + " + res +" = "+tensoes[o]+")");
             }
         }
     }
